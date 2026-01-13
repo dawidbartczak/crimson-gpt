@@ -1,0 +1,44 @@
+.message {
+  align-self: flex-end;
+  animation: gradientAnimation 10s linear infinite, fadeIn 1s forwards;
+  border: 1px solid rgba(225, 168, 191, 0.05);
+  border-radius: 25px 25px 0 25px;
+  background: linear-gradient(rgba(186, 51, 105, 0.06) 0%,
+      rgba(255, 122, 175, 0.03) 25%,
+      rgba(186, 51, 105, 0.2) 50%,
+      rgba(255, 122, 175, 0.03) 75%,
+      rgba(186, 51, 105, 0.06) 100%);
+  background-size: 200% 400%;
+  padding: 10px 20px;
+  width: fit-content;
+  max-width: 500px;
+  white-space: pre-wrap;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .message {
+    font-size: 14px;
+    padding: 5px 15px;
+  }
+}

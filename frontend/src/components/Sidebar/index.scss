@@ -1,0 +1,41 @@
+.sidebar {
+    transition: width 0.3s ease-in-out;
+    margin-left: 0;
+    border-right: 1px solid #252525;
+    background-color: #141414;
+    width: 275px;
+    height: 100%;
+    overflow: hidden;
+    // overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+
+    &--hidden {
+        width: 0;
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 15px 0 25px;
+        width: 100%;
+        height: 70px;
+        flex-shrink: 0;
+    }
+
+    &__title {
+        color: white;
+        font-weight: 600;
+        font-size: 18px;
+        user-select: none;
+    }
+
+    &__chats {
+        height: 100%;
+        // padding: 0 0 0 10px;
+        overflow-y: auto;
+        scrollbar-color: #666666 transparent;
+        scrollbar-gutter: stable both-edges;
+    }
+}
