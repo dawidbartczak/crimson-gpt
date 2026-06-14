@@ -1,0 +1,9 @@
+ktor:
+  application:
+    modules:
+      - dev.noctis.ApplicationKt.module
+  deployment:
+    port: 8080
+
+# JWT values are read from environment variables:
+# JWT_SECRET, JWT_ISSUER, JWT_AUDIENCE, JWT_LIFETIME

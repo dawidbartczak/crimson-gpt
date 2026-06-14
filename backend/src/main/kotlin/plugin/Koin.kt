@@ -12,7 +12,6 @@ import dev.noctis.postgres.table.chats.ChatsService
 import dev.noctis.postgres.table.messages.MessagesService
 import dev.noctis.postgres.table.users.UsersService
 import io.ktor.server.application.*
-import io.ktor.server.config.*
 import org.koin.dsl.module
 import org.koin.ktor.plugin.Koin
 import org.koin.logger.slf4jLogger
@@ -23,10 +22,10 @@ fun Application.configureKoin() {
 
         modules(
             module {
-                val secret = environment.config.tryGetString("jwt.secret") ?: ""
-                val issuer = environment.config.tryGetString("jwt.issuer") ?: ""
-                val audience = environment.config.tryGetString("jwt.audience") ?: ""
-                val lifetime = environment.config.tryGetString("jwt.lifetime")?.toLong() ?: 2592000000
+                val secret = System.getenv("JWT_SECRET") ?: ""
+                val issuer = System.getenv("JWT_ISSUER") ?: ""
+                val audience = System.getenv("JWT_AUDIENCE") ?: ""
+                val lifetime = System.getenv("JWT_LIFETIME")?.toLong() ?: 2592000000
 
                 single { JwtConfig(secret, issuer, audience, lifetime) }
 
